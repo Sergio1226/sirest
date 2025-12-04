@@ -70,17 +70,13 @@ export default function RestaurantMenu() {
         `https://my-first-worker.sergiocalderon1226.workers.dev/api/getMenu?month=${month}&day=${day}&type=${mealType}`
       );
       const data: { tasks: MenuData } = await response.json();
-      console.log(data);
-
       if (!response.ok || data.tasks === null) {
-        const errorMessage: string = "Menu no disponible para esta fecha";
-        setError(errorMessage);
-        return ;
+        throw new Error("Menu no disponible para esta fecha");
       }
       setDateSearched(selectedDate);
       setMenuData(data.tasks);
     } catch (err) {
-      const errorMessage: string = "Error de conexion";
+      const errorMessage: string = "Menu no disponible para esta fecha";
       setError(errorMessage);
       setMenuData(null);
       console.error(err);
