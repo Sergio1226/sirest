@@ -45,6 +45,7 @@ export default function RestaurantMenu() {
   const [menuData, setMenuData] = useState<MenuData | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const[dateSearched,setDateSearched]=useState<Date|null>(null);
 
   const fetchMenu = async (): Promise<void> => {
     if (!selectedDate) {
@@ -56,6 +57,11 @@ export default function RestaurantMenu() {
     setError(null);
 
     try {
+
+      if(selectedDate===dateSearched){
+        return;
+      }
+      
       const date = new Date(selectedDate);
       const month = date.getMonth() + 1;
       const day = date.getDate();
@@ -67,8 +73,11 @@ export default function RestaurantMenu() {
       console.log(data);
 
       if (!response.ok || data.tasks === null) {
-        throw new Error("No hay menú disponible para esta fecha");
+        const errorMessage: string = "Menu no disponible para esta fecha";
+        setError(errorMessage);
+        return ;
       }
+      setDateSearched(selectedDate);
       setMenuData(data.tasks);
     } catch (err) {
       const errorMessage: string = "Error de conexion";
