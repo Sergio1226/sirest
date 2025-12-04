@@ -1,0 +1,11 @@
+export default function Footer() {
+  return (
+    <footer className="relative mt-12 sm:mt-20 backdrop-blur-xl bg-black/20 border-t border-white/10 py-8 sm:py-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+        <p className="text-orange-200/60 text-xs sm:text-sm">
+          © 2025 Restaurante Estudiantil - UPTC
+        </p>
+      </div>
+    </footer>
+  );
+}
