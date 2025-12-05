@@ -1,8 +1,9 @@
 import { ChefHat, Sparkles } from "lucide-react";
+import React from "react";
 
-export default function Header() {
+function Header() {
   return (
-    <header className="relative backdrop-blur-xl bg-white/5 border-b border-white/10 shadow-2xl">
+    <header className="relative backdrop-blur-md bg-white/5 border-b border-white/10 shadow-2xl">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <div className="relative flex-shrink-0">
@@ -19,3 +20,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default React.memo(Header);

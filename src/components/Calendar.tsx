@@ -45,7 +45,7 @@ export default function CalendarSingle({ selected, setSelected }: Props) {
     <div className=" w-full" ref={wrapperRef}>
       <div
         onClick={() => setOpen(!open)}
-        className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/10 backdrop-blur-xl border-2 border-white/20 rounded-xl sm:rounded-2xl text-white cursor-pointer flex items-center justify-between transition-all duration-300 hover:border-white/60 font-medium hover:shadow-2xl hover:shadow-orange-300/20  hover:bg-white/5"
+        className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-xl sm:rounded-2xl text-white cursor-pointer flex items-center justify-between  duration-300 hover:border-white/60 font-medium hover:shadow-2xl hover:shadow-orange-300/20  hover:bg-white/5"
       >
         <span>
           {selected ? format(selected || new Date()) : "Seleccione una fecha"}
@@ -54,7 +54,7 @@ export default function CalendarSingle({ selected, setSelected }: Props) {
       </div>
 
       {open && (
-        <div className="absolute top-full -left-[24px] sm:left-0 right-0 mt-2 p-4 sm:p-6 bg-white rounded-2xl shadow-2xl z-50 w-fit backdrop-blur-xl">
+        <div className="absolute top-full -left-[24px] sm:left-0 right-0 mt-2 p-4 sm:p-6 bg-white rounded-2xl shadow-2xl z-50 w-fit backdrop-blur-md">
           <DayPicker
             mode="single"
             selected={selected}
