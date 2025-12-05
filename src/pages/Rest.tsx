@@ -20,14 +20,14 @@ export default function RestaurantMenu() {
       return;
     }
 
-    setLoading(true);
-    setError(null);
     if (
       dateSearched &&
       selectedDate.toDateString() === dateSearched.toDateString()
     ) {
       return;
     }
+    setLoading(true);
+    setError(null);
 
     try {
       const date = new Date(selectedDate);
